@@ -18,6 +18,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Debug DOCKER_USERNAME
+        run: echo "DOCKER_USERNAME=$DOCKER_USERNAME"
+
       - name: Login to Docker Hub
         run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
@@ -28,4 +31,4 @@ jobs:
         run: |
           docker buildx build --platform linux/amd64,linux/arm64 \
             --build-arg MONGO_URI="${MONGO_URI}" \
-            -t $DOCKER_USERNAME/techchallenge2:latest . --push
+            -t "$DOCKER_USERNAME/techchallenge2:latest" . --push
