@@ -11,7 +11,8 @@ RUN npm i -g npm
 
 COPY .env .env
 
-ENV MONGO_URI=${MONGO_URI}
+ARG MONGO_URI
+ENV MONGO_URI=$MONGO_URI
 ENV PORT=3010
 
 RUN npm run build
