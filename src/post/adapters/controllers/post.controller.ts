@@ -1,8 +1,16 @@
 import { CreatePostUseCase } from './../../use-cases/create-post';
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { z } from 'zod';
 import { IPost } from 'src/post/entities/post.entity';
 import { GetAllPostsUseCase } from 'src/post/use-cases/getAll-post';
+import { findByTitleUseCase } from 'src/post/use-cases/findByTitle';
 
 const postSchema = z.object({
   title: z.string(),
@@ -17,6 +25,7 @@ export class PostController {
   constructor(
     private readonly createPostUseCase: CreatePostUseCase,
     private readonly getAllPosts: GetAllPostsUseCase,
+    private readonly findByTitle: findByTitleUseCase,
   ) {}
 
   @Get()
@@ -31,5 +40,14 @@ export class PostController {
     } catch (error) {
       throw new Error(error.message);
     }
+  }
+
+  @Get(':title')
+  async findByTitlee(@Param('title') title: string): Promise<IPost> {
+    const post = await this.findByTitle.findByTitle(title);
+    if (!post) {
+      throw new NotFoundException('Post com esse título não encontrado');
+    }
+    return post;
   }
 }
