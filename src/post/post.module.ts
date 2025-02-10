@@ -7,7 +7,7 @@ import { PostMongooseRepository } from './adapters/repositories/mongoose/post.mo
 import { Post, PostSchema } from './entities/schemas/post.schema';
 import { CreatePostUseCase } from './use-cases/create-post';
 import { GetAllPostsUseCase } from './use-cases/getAll-post';
-import { FindByTitleUseCase } from './use-cases/findByTitle';
+import { FindByTitleOrContentUseCase } from './use-cases/findByTitleOrContent';
 
 @Module({
   imports: [
@@ -26,9 +26,9 @@ import { FindByTitleUseCase } from './use-cases/findByTitle';
     },
     CreatePostUseCase,
     GetAllPostsUseCase,
-    FindByTitleUseCase,
+    FindByTitleOrContentUseCase,
     PostService,
   ],
-  exports: [CreatePostUseCase, GetAllPostsUseCase, FindByTitleUseCase],
+  exports: [CreatePostUseCase, GetAllPostsUseCase, FindByTitleOrContentUseCase],
 })
 export class PostModule {}

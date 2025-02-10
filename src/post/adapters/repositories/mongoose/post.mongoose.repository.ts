@@ -19,7 +19,14 @@ export class PostMongooseRepository implements PostRepository {
     return post;
   }
 
-  async findByTitle(title: string): Promise<IPost | null> {
-    return this.postModel.findOne({ title }).exec();
+  async findByTitleOrContent(termo: string): Promise<IPost | null> {
+    return this.postModel
+      .findOne({
+        $or: [
+          { title: { $regex: termo, $options: 'i' } },
+          { content: { $regex: termo, $options: 'i' } },
+        ],
+      })
+      .exec();
   }
 }

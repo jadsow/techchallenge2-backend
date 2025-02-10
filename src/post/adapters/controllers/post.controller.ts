@@ -11,7 +11,7 @@ import {
 import { z } from 'zod';
 import { IPost } from 'src/post/entities/post.entity';
 import { GetAllPostsUseCase } from 'src/post/use-cases/getAll-post';
-import { FindByTitleUseCase } from 'src/post/use-cases/findByTitle';
+import { FindByTitleOrContentUseCase } from 'src/post/use-cases/findByTitleOrContent';
 
 const postSchema = z.object({
   title: z.string(),
@@ -26,7 +26,7 @@ export class PostController {
   constructor(
     private readonly createPostUseCase: CreatePostUseCase,
     private readonly getAllPosts: GetAllPostsUseCase,
-    private readonly findByTitle: FindByTitleUseCase,
+    private readonly findByTitle: FindByTitleOrContentUseCase,
   ) {}
 
   @Get()
@@ -47,9 +47,9 @@ export class PostController {
     }
   }
 
-  @Get(':title')
-  async searchByTitle(@Param('title') title: string): Promise<IPost> {
-    const post = await this.findByTitle.findByTitle(title);
+  @Get(':termo')
+  async searchByTitleOrContent(@Param('termo') termo: string): Promise<IPost> {
+    const post = await this.findByTitle.findByTitleOrContent(termo);
     if (!post) {
       throw new NotFoundException('Post com esse título não encontrado');
     }

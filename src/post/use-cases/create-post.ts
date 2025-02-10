@@ -8,7 +8,9 @@ export class CreatePostUseCase implements ICreatePostUseCase {
   constructor(private readonly postRepository: PostRepository) {}
 
   async create(post: IPost): Promise<IPost> {
-    const existingPost = await this.postRepository.findByTitle(post.title);
+    const existingPost = await this.postRepository.findByTitleOrContent(
+      post.title,
+    );
 
     if (existingPost) {
       throw new ConflictException('Post com este título já existe');
