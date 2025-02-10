@@ -1,10 +1,10 @@
+import { PostService } from './adapters/services/post.service';
+import { PostMongooseRepository } from './adapters/repositories/mongoose/post.mongoose.repository';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Post, PostSchema } from './infra/schemas/post.schema';
-import { PostRepository } from './domain/repositories/post.repository';
-import { PostMongooseRepository } from './domain/repositories/mongoose/post.mongoose.repository';
-import { PostController } from './presentation/post.controller';
-import { PostService } from './application/post.service';
+import { PostController } from './adapters/controllers/post.controller';
+import { PostRepository } from './adapters/repositories/post.repository';
+import { Post, PostSchema } from './entities/schemas/post.schema';
 
 @Module({
   imports: [
