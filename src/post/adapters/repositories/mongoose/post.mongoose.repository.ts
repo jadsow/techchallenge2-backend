@@ -14,7 +14,7 @@ export class PostMongooseRepository implements PostRepository {
   async create(post: any): Promise<IPost> {
     const createPost = new this.postModel(post);
     await createPost.save();
-    return post.title;
+    return post;
   }
 
   async findByTitle(title: string): Promise<IPost | null> {
