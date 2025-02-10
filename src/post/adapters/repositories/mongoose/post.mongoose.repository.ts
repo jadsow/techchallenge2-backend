@@ -3,7 +3,9 @@ import { Model } from 'mongoose';
 import { PostRepository } from '../../repositories/post.repository';
 import { InjectModel } from '@nestjs/mongoose';
 import { Post } from 'src/post/entities/schemas/post.schema';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class PostMongooseRepository implements PostRepository {
   constructor(@InjectModel(Post.name) private postModel: Model<Post>) {}
 

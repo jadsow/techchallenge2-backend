@@ -6,17 +6,17 @@ import { Injectable } from '@nestjs/common';
 export class PostService {
   constructor(private postRepository: PostRepository) {}
 
-  async getAll() {
-    return this.postRepository.getAll();
-  }
+  // async getAll() {
+  //   return this.postRepository.getAll();
+  // }
 
-  async createPost(post: IPost): Promise<any> {
-    // const existingPost = await this.postRepository.findByTitle(post.title);
+  // async createPost(post: IPost): Promise<any> {
+  //   const existingPost = await this.postRepository.findByTitle(post.title);
 
-    // if (existingPost) {
-    //   throw new Error('Já existe um post com este título');
-    // }
+  //   if (existingPost) {
+  //     throw new Error('Já existe um post com este título');
+  //   }
 
-    return this.postRepository.create(post);
-  }
+  //   return this.postRepository.create(post);
+  // }
 }

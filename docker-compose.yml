@@ -10,8 +10,8 @@ services:
     depends_on:
       - mongo
     volumes:
-      - .:/user/app
-      - /user/app/node_modules
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     restart: always
 
   mongo:
