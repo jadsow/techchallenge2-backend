@@ -1,6 +1,6 @@
 import { ICreatePostUseCase } from './interfaces/create-post.interface';
 import { IPost } from './../entities/post.entity';
-import { ConflictException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { PostRepository } from '../adapters/repositories/post.repository';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class CreatePostUseCase implements ICreatePostUseCase {
     );
 
     if (existingPost) {
-      throw new ConflictException('Post com este título já existe');
+      throw new BadRequestException('Post com este título já existe');
     }
 
     return this.postRepository.create(post);

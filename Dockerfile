@@ -1,6 +1,6 @@
 FROM node:18-alpine
 
-WORKDIR /user/app
+WORKDIR /usr/src/app
 
 COPY package.json package-lock.json ./
 RUN npm install
@@ -17,4 +17,4 @@ RUN npm run build
 
 EXPOSE 3010
 
-CMD ["node", "dist/main.js"]
+CMD ["npm", "run", "start:dev"]

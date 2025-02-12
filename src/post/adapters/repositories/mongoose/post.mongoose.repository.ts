@@ -13,6 +13,10 @@ export class PostMongooseRepository implements PostRepository {
     return await this.postModel.find();
   }
 
+  async getById(id: string): Promise<IPost | null> {
+    return await this.postModel.findById(id).exec();
+  }
+
   async create(post: any): Promise<IPost> {
     const createPost = new this.postModel(post);
     await createPost.save();
