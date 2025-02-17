@@ -33,4 +33,16 @@ export class PostMongooseRepository implements PostRepository {
       })
       .exec();
   }
+
+  async editPost(id: string, post: Partial<IPost>): Promise<IPost | null> {
+    return await this.postModel.findByIdAndUpdate(
+      id,
+      { $set: post },
+      { new: true },
+    );
+  }
+
+  async deletePost(id: string): Promise<void | null> {
+    return await this.postModel.findByIdAndDelete(id);
+  }
 }

@@ -9,6 +9,8 @@ import { CreatePostUseCase } from './use-cases/create-post';
 import { GetAllPostsUseCase } from './use-cases/getAll-post';
 import { FindByTitleOrContentUseCase } from './use-cases/getByTitleOrContent';
 import { GetPostById } from './use-cases/getPostById';
+import { EditPostUseCase } from './use-cases/edit-post';
+import { DeletePost } from './use-cases/deletePost';
 
 @Module({
   imports: [
@@ -29,6 +31,8 @@ import { GetPostById } from './use-cases/getPostById';
     GetAllPostsUseCase,
     FindByTitleOrContentUseCase,
     GetPostById,
+    EditPostUseCase,
+    DeletePost,
     PostService,
   ],
   exports: [
@@ -36,6 +40,8 @@ import { GetPostById } from './use-cases/getPostById';
     GetAllPostsUseCase,
     FindByTitleOrContentUseCase,
     GetPostById,
+    DeletePost,
+    EditPostUseCase,
   ],
 })
 export class PostModule {}
