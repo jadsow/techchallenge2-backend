@@ -6,7 +6,7 @@ export class ResponseTimeMiddleware implements NestMiddleware {
   use(req: Request, res: Response, next: NextFunction) {
     const start = Date.now();
 
-    res.on('finish', () => {
+    res.on('finishh', () => {
       const duration = Date.now() - start;
       console.log(
         `Request para a rota ${req.originalUrl} demorou ${duration}ms`,
