@@ -2,7 +2,7 @@ import { IPost } from 'src/post/domain/entities/post.entity';
 import { Model } from 'mongoose';
 import { PostRepository } from 'src/post/domain/repositories/post.repository';
 import { InjectModel } from '@nestjs/mongoose';
-import { Post } from 'src/post/domain/entities/schemas/post.schema';
+import { Post } from 'src/post/infra/schemas/post.schema';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
