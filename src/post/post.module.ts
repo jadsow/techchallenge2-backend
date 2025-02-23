@@ -4,7 +4,7 @@ import { PostController } from './adapters/controllers/post.controller';
 import { PostService } from './adapters/services/post.service';
 import { PostRepository } from './domain/repositories/post.repository';
 import { PostMongooseRepository } from './infra/repositories/mongoose/post.mongoose.repository';
-import { Post, PostSchema } from './domain/entities/schemas/post.schema';
+import { Post, PostSchema } from './infra/schemas/post.schema';
 import { CreatePostUseCase } from './domain/use-cases/create-post';
 import { GetAllPostsUseCase } from './domain/use-cases/getAll-post';
 import { FindByTitleOrContentUseCase } from './domain/use-cases/getByTitleOrContent';
