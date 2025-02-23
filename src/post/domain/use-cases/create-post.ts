@@ -1,7 +1,7 @@
 import { ICreatePostUseCase } from './interfaces/create-post.interface';
 import { IPost } from './../entities/post.entity';
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { PostRepository } from '../adapters/repositories/post.repository';
+import { PostRepository } from '../repositories/post.repository';
 
 @Injectable()
 export class CreatePostUseCase implements ICreatePostUseCase {

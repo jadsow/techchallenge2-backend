@@ -1,4 +1,4 @@
-import { IPost } from './../../entities/post.entity';
+import { IPost } from '../entities/post.entity';
 
 export abstract class PostRepository {
   abstract getAll(): Promise<IPost[]>;
