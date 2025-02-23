@@ -3,7 +3,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { PostModule } from './post/post.module';
-import { ResponseTimeMiddleware } from './shared/middlewares/tempo-resposta.middleware';
+import { ResponseTimeMiddleware } from './post/adapters/middlewares/tempo-resposta.middleware';
 
 @Module({
   imports: [

@@ -1,4 +1,4 @@
-import { CreatePostUseCase } from './../../use-cases/create-post';
+import { CreatePostUseCase } from './../../domain/use-cases/create-post';
 import {
   BadRequestException,
   Body,
@@ -12,13 +12,13 @@ import {
   Put,
 } from '@nestjs/common';
 import { z } from 'zod';
-import { IPost } from 'src/post/entities/post.entity';
-import { GetAllPostsUseCase } from 'src/post/use-cases/getAll-post';
-import { FindByTitleOrContentUseCase } from 'src/post/use-cases/getByTitleOrContent';
-import { GetPostById } from 'src/post/use-cases/getPostById';
+import { IPost } from 'src/post/domain/entities/post.entity';
+import { GetAllPostsUseCase } from 'src/post/domain/use-cases/getAll-post';
+import { FindByTitleOrContentUseCase } from 'src/post/domain/use-cases/getByTitleOrContent';
+import { GetPostById } from 'src/post/domain/use-cases/getPostById';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { EditPostUseCase } from 'src/post/use-cases/edit-post';
-import { DeletePost } from 'src/post/use-cases/deletePost';
+import { EditPostUseCase } from 'src/post/domain/use-cases/edit-post';
+import { DeletePost } from 'src/post/domain/use-cases/deletePost';
 
 const postSchema = z.object({
   title: z.string(),

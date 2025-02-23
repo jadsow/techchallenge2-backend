@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PostRepository } from '../adapters/repositories/post.repository';
+import { PostRepository } from '../repositories/post.repository';
 import { IDeletePost } from './interfaces/delete-post.interface';
 
 @Injectable()

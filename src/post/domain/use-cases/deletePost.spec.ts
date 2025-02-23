@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PostRepository } from '../adapters/repositories/post.repository';
+import { PostRepository } from '../repositories/post.repository';
 import { NotFoundException } from '@nestjs/common';
 import { DeletePost } from './deletePost';
 

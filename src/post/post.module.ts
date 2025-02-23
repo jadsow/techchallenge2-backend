@@ -2,15 +2,15 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PostController } from './adapters/controllers/post.controller';
 import { PostService } from './adapters/services/post.service';
-import { PostRepository } from './adapters/repositories/post.repository';
-import { PostMongooseRepository } from './adapters/repositories/mongoose/post.mongoose.repository';
-import { Post, PostSchema } from './entities/schemas/post.schema';
-import { CreatePostUseCase } from './use-cases/create-post';
-import { GetAllPostsUseCase } from './use-cases/getAll-post';
-import { FindByTitleOrContentUseCase } from './use-cases/getByTitleOrContent';
-import { GetPostById } from './use-cases/getPostById';
-import { EditPostUseCase } from './use-cases/edit-post';
-import { DeletePost } from './use-cases/deletePost';
+import { PostRepository } from './domain/repositories/post.repository';
+import { PostMongooseRepository } from './infra/repositories/mongoose/post.mongoose.repository';
+import { Post, PostSchema } from './domain/entities/schemas/post.schema';
+import { CreatePostUseCase } from './domain/use-cases/create-post';
+import { GetAllPostsUseCase } from './domain/use-cases/getAll-post';
+import { FindByTitleOrContentUseCase } from './domain/use-cases/getByTitleOrContent';
+import { GetPostById } from './domain/use-cases/getPostById';
+import { EditPostUseCase } from './domain/use-cases/edit-post';
+import { DeletePost } from './domain/use-cases/deletePost';
 
 @Module({
   imports: [

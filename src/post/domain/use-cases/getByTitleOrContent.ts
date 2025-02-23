@@ -1,6 +1,6 @@
 import { IPost } from '../entities/post.entity';
 import { Injectable } from '@nestjs/common';
-import { PostRepository } from '../adapters/repositories/post.repository';
+import { PostRepository } from '../repositories/post.repository';
 import { IGetByTitleOrContent } from './interfaces/getByTitleOrContent-interface';
 
 @Injectable()
