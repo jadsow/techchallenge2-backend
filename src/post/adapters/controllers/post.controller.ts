@@ -77,7 +77,7 @@ export class PostController {
   }
 
   @ApiOperation({
-    summary: 'Edita um post baseado no ID que é enviado na URL',
+    summary: 'Edita um post baseado no ID que é enviado na URL!',
   })
   @Put('/edit/:id')
   async updatePost(

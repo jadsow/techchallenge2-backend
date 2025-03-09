@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { PostController } from './adapters/controllers/post.controller';
-import { PostService } from './adapters/services/post.service';
+
 import { PostRepository } from './domain/repositories/post.repository';
 import { PostMongooseRepository } from './infra/repositories/mongoose/post.mongoose.repository';
 import { Post, PostSchema } from './infra/schemas/post.schema';
@@ -33,7 +33,6 @@ import { DeletePost } from './domain/use-cases/deletePost';
     GetPostById,
     EditPostUseCase,
     DeletePost,
-    PostService,
   ],
   exports: [
     CreatePostUseCase,
