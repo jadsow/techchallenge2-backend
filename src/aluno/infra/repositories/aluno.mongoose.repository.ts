@@ -29,4 +29,8 @@ export class AlunoMongooseRepository implements AlunoRepository {
   async delete(id: string): Promise<void> {
     await this.alunoModel.findByIdAndDelete(id).exec();
   }
+
+  async findByEmail(email: string): Promise<IAluno | null> {
+    return this.alunoModel.findOne({ email }).exec();
+  }
 }

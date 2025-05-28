@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { AlunoMongooseRepository } from '../../aluno/infra/repositories/mongoose/aluno.mongoose.repository';
+import { AlunoMongooseRepository } from './../aluno/infra/repositories/aluno.mongoose.repository';
 
 @Injectable()
 export class AuthService {

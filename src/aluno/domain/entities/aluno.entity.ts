@@ -3,5 +3,5 @@ export interface IAluno {
   nome: string;
   email: string;
   senha: string;
-  role: string;
+  role?: string;
 }
