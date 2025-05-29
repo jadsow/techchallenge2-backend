@@ -3,4 +3,5 @@ export interface IProfessor {
   nome: string;
   email: string;
   senha: string;
+  role?: string;
 }

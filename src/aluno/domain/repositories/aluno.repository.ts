@@ -6,4 +6,5 @@ export abstract class AlunoRepository {
   abstract getById(id: string): Promise<IAluno | null>;
   abstract update(id: string, aluno: Partial<IAluno>): Promise<IAluno | null>;
   abstract delete(id: string): Promise<void>;
+  abstract findByEmail(email: string): Promise<IAluno | null>;
 }

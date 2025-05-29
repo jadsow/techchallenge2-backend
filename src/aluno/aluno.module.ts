@@ -18,6 +18,7 @@ import { DeleteAlunoUseCase } from './domain/use-cases/delete-aluno';
   controllers: [AlunoController],
   providers: [
     { provide: AlunoRepository, useClass: AlunoMongooseRepository },
+    AlunoMongooseRepository,
     CreateAlunoUseCase,
     GetAllAlunoUseCase,
     EditAlunoUseCase,
@@ -28,6 +29,8 @@ import { DeleteAlunoUseCase } from './domain/use-cases/delete-aluno';
     GetAllAlunoUseCase,
     EditAlunoUseCase,
     DeleteAlunoUseCase,
+    AlunoRepository,
+    AlunoMongooseRepository,
   ],
 })
 export class AlunoModule {}

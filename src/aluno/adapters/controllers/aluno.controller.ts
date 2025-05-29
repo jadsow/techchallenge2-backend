@@ -28,19 +28,12 @@ export class AlunoController {
     private readonly deleteAlunoUseCase: DeleteAlunoUseCase,
   ) {}
 
-  // Somente professores podem criar alunos
   @Post()
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(Role.Professor)
-  @ApiBearerAuth()
   create(@Body() aluno: any) {
     return this.createAlunoUseCase.create(aluno);
   }
 
-  // Alunos e professores autenticados podem listar alunos
   @Get()
-  @UseGuards(JwtAuthGuard)
-  @ApiBearerAuth()
   getAll() {
     return this.getAllAlunosUseCase.getAll();
   }

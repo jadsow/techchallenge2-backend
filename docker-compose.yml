@@ -7,6 +7,7 @@ services:
       - '3010:3010'
     environment:
       - MONGO_URI=mongodb://admin:admin@mongo:27017/bancoTechChallenge2?authSource=admin
+      - JWT_SECRET=k2w9R!v7$zYpF%jX#rL3u8TbAqXeShV0
     depends_on:
       - mongo
     volumes:

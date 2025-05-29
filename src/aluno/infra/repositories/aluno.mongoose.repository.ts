@@ -4,12 +4,16 @@ import { IAluno } from 'src/aluno/domain/entities/aluno.entity';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Aluno } from '../schemas/aluno.schema';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AlunoMongooseRepository implements AlunoRepository {
   constructor(@InjectModel(Aluno.name) private alunoModel: Model<Aluno>) {}
 
   async create(aluno: IAluno): Promise<IAluno> {
+    const saltRounds = 10;
+    aluno.senha = await bcrypt.hash(aluno.senha, saltRounds);
+
     const created = new this.alunoModel(aluno);
     return created.save();
   }
