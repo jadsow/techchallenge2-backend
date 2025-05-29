@@ -6,6 +6,7 @@ import { PostModule } from './post/post.module';
 import { ResponseTimeMiddleware } from './post/adapters/middlewares/tempo-resposta.middleware';
 import { AuthModule } from './auth/auth.module';
 import { AlunoModule } from './aluno/aluno.module';
+import { ProfessorModule } from './professor/professor.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AlunoModule } from './aluno/aluno.module';
     PostModule,
     AlunoModule,
     AuthModule,
+    ProfessorModule,
   ],
   providers: [AppService],
 })

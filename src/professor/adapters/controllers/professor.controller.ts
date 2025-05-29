@@ -32,9 +32,6 @@ export class ProfessorController {
   ) {}
 
   @Post()
-  @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(Role.Professor)
-  @ApiBearerAuth()
   create(@Body() professor: IProfessor) {
     return this.createProfessor.execute(professor);
   }

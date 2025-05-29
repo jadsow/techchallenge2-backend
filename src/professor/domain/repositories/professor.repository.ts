@@ -1,12 +1,12 @@
 import { IProfessor } from '../entities/professor.entity';
 
-export interface ProfessorRepository {
-  create(professor: IProfessor): Promise<IProfessor>;
-  findAll(): Promise<IProfessor[]>;
-  findById(id: string): Promise<IProfessor | null>;
-  update(
+export abstract class ProfessorRepository {
+  abstract create(professor: IProfessor): Promise<IProfessor>;
+  abstract findAll(): Promise<IProfessor[]>;
+  abstract findById(id: string): Promise<IProfessor | null>;
+  abstract update(
     id: string,
     professor: Partial<IProfessor>,
   ): Promise<IProfessor | null>;
-  delete(id: string): Promise<void>;
+  abstract delete(id: string): Promise<void>;
 }

@@ -1,3 +1,4 @@
+import { ProfessorRepository } from './domain/repositories/professor.repository';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ProfessorController } from './adapters/controllers/professor.controller';
@@ -17,8 +18,14 @@ import { DeleteProfessorUseCase } from './domain/use-cases/delete-professor.usec
   ],
   controllers: [ProfessorController],
   providers: [
-    ProfessorMongoRepository,
-    { provide: 'ProfessorRepository', useExisting: ProfessorMongoRepository },
+    { provide: ProfessorRepository, useClass: ProfessorMongoRepository },
+    CreateProfessorUseCase,
+    GetAllProfessorsUseCase,
+    GetProfessorByIdUseCase,
+    UpdateProfessorUseCase,
+    DeleteProfessorUseCase,
+  ],
+  exports: [
     CreateProfessorUseCase,
     GetAllProfessorsUseCase,
     GetProfessorByIdUseCase,
