@@ -9,6 +9,7 @@ import {
   Param,
   Post,
   Put,
+  Req,
   UseGuards,
 } from '@nestjs/common';
 import { z } from 'zod';
@@ -66,10 +67,16 @@ export class PostController {
 
   @ApiOperation({ summary: 'Realiza o cadastro de um post' })
   @Post()
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
-  @Roles(Role.Professor)
-  async create(@Body() { title, content, author }: CreatePost): Promise<IPost> {
+  async create(
+    @Body() { title, content, author }: CreatePost,
+    @Req() req: any,
+  ): Promise<IPost> {
+    if (req.user.role !== Role.Professor) {
+      throw new BadRequestException('Apenas professores podem criar posts');
+    }
+
     return this.createPostUseCase.create({ title, content, author });
   }
 

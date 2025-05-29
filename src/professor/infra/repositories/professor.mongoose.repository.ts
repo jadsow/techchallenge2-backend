@@ -37,4 +37,8 @@ export class ProfessorMongoRepository implements ProfessorRepository {
   async delete(id: string): Promise<void> {
     await this.professorModel.findByIdAndDelete(id).exec();
   }
+
+  async findByEmail(email: string): Promise<IProfessor | null> {
+    return this.professorModel.findOne({ email }).exec();
+  }
 }

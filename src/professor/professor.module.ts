@@ -24,6 +24,7 @@ import { DeleteProfessorUseCase } from './domain/use-cases/delete-professor.usec
     GetProfessorByIdUseCase,
     UpdateProfessorUseCase,
     DeleteProfessorUseCase,
+    ProfessorMongoRepository,
   ],
   exports: [
     CreateProfessorUseCase,
@@ -31,6 +32,7 @@ import { DeleteProfessorUseCase } from './domain/use-cases/delete-professor.usec
     GetProfessorByIdUseCase,
     UpdateProfessorUseCase,
     DeleteProfessorUseCase,
+    ProfessorMongoRepository,
   ],
 })
 export class ProfessorModule {}

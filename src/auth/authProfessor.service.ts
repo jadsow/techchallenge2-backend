@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
-import { AlunoMongooseRepository } from './../aluno/infra/repositories/aluno.mongoose.repository';
+import { ProfessorMongoRepository } from 'src/professor/infra/repositories/professor.mongoose.repository';
 
 @Injectable()
-export class AuthService {
+export class ProfessorAuthService {
   constructor(
-    private readonly alunoRepo: AlunoMongooseRepository,
+    private readonly professorRepo: ProfessorMongoRepository,
     private readonly jwtService: JwtService,
   ) {}
 
   async validateUser(email: string, pass: string): Promise<any> {
-    const user = await this.alunoRepo.findByEmail(email);
+    const user = await this.professorRepo.findByEmail(email);
 
     if (user && (await bcrypt.compare(pass, user.senha))) {
       const { senha, ...result } = user;

@@ -9,4 +9,5 @@ export abstract class ProfessorRepository {
     professor: Partial<IProfessor>,
   ): Promise<IProfessor | null>;
   abstract delete(id: string): Promise<void>;
+  abstract findByEmail(email: string): Promise<IProfessor | null>;
 }
