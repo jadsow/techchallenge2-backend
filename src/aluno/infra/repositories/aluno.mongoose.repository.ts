@@ -1,10 +1,10 @@
-import { Injectable } from '@nestjs/common';
-import { AlunoRepository } from 'src/aluno/domain/repositories/aluno.repository';
-import { IAluno } from 'src/aluno/domain/entities/aluno.entity';
-import { Model } from 'mongoose';
-import { InjectModel } from '@nestjs/mongoose';
-import { Aluno } from '../schemas/aluno.schema';
-import * as bcrypt from 'bcrypt';
+import { Injectable } from "@nestjs/common";
+import { AlunoRepository } from "src/aluno/domain/repositories/aluno.repository";
+import { IAluno } from "src/aluno/domain/entities/aluno.entity";
+import { Model } from "mongoose";
+import { InjectModel } from "@nestjs/mongoose";
+import { Aluno } from "../schemas/aluno.schema";
+import * as bcrypt from "bcrypt";
 
 @Injectable()
 export class AlunoMongooseRepository implements AlunoRepository {
